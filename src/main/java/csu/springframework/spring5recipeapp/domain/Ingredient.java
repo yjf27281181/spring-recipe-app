@@ -1,9 +1,6 @@
 package csu.springframework.spring5recipeapp.domain;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 public class Ingredient {
@@ -15,6 +12,9 @@ public class Ingredient {
 
     @ManyToOne
     private Recipe recipe;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    private UnitOfMeasure uom;
 
     public Long getId() {
         return id;
@@ -46,5 +46,13 @@ public class Ingredient {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public UnitOfMeasure getUom() {
+        return uom;
+    }
+
+    public void setUom(UnitOfMeasure uom) {
+        this.uom = uom;
     }
 }
