@@ -2,6 +2,7 @@ package csu.springframework.spring5recipeapp.recipes;
 
 import csu.springframework.spring5recipeapp.domain.Recipe;
 import csu.springframework.spring5recipeapp.repositories.RecipeRepository;
+import csu.springframework.spring5recipeapp.services.RecipeServiceImpl;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;

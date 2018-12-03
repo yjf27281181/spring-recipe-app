@@ -1,14 +1,13 @@
 package csu.springframework.spring5recipeapp.controllers;
 
 import csu.springframework.spring5recipeapp.commands.RecipeCommand;
-import csu.springframework.spring5recipeapp.domain.Ingredient;
 import csu.springframework.spring5recipeapp.domain.Recipe;
-import csu.springframework.spring5recipeapp.recipes.RecipeService;
+import csu.springframework.spring5recipeapp.services.RecipeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.*;
+
 
 @Controller
 public class RecipeController {
@@ -18,6 +17,7 @@ public class RecipeController {
         this.recipeService = recipeService;
     }
 
+    @GetMapping
     @RequestMapping("/recipe/show/{id}")
     public String showById(@PathVariable String id, Model model) {
         Recipe recipe = recipeService.findById(Long.valueOf(id));
@@ -25,6 +25,7 @@ public class RecipeController {
         return "recipe/show";
     }
 
+    @GetMapping
     @RequestMapping("recipe/new")
     public String newRecipe(Model model) {
         model.addAttribute("recipe", new RecipeCommand());
@@ -42,5 +43,12 @@ public class RecipeController {
     public String saveOrUpdate(@ModelAttribute RecipeCommand command) {
         RecipeCommand savedCommand = recipeService.saveRecipeCommand(command);
         return "redirect:/recipe/show/" + savedCommand.getId();
+    }
+
+    @GetMapping
+    @RequestMapping("recipe/{id}/delete")
+    public String deleteById(@PathVariable String id) {
+        recipeService.deleteById(Long.valueOf(id));
+        return "redirect:/";
     }
 }

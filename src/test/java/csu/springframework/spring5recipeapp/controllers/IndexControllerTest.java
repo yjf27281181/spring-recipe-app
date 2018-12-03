@@ -1,15 +1,13 @@
 package csu.springframework.spring5recipeapp.controllers;
 
 import csu.springframework.spring5recipeapp.domain.Recipe;
-import csu.springframework.spring5recipeapp.recipes.RecipeService;
+import csu.springframework.spring5recipeapp.services.RecipeService;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.internal.configuration.injection.MockInjection;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.MockMvcBuilder;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 
@@ -17,7 +15,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.anySet;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;

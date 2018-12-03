@@ -1,4 +1,4 @@
-package csu.springframework.spring5recipeapp.recipes;
+package csu.springframework.spring5recipeapp.services;
 
 import csu.springframework.spring5recipeapp.commands.RecipeCommand;
 import csu.springframework.spring5recipeapp.converts.RecipeCommandToRecipe;
@@ -54,5 +54,10 @@ public class RecipeServiceImpl implements RecipeService {
     @Transactional
     public RecipeCommand findCommandById(String id) {
         return recipeToRecipeCommand.convert(findById(Long.valueOf(id)));
+    }
+
+    @Override
+    public void deleteById(Long id) {
+        recipeRepository.deleteById(id);
     }
 }

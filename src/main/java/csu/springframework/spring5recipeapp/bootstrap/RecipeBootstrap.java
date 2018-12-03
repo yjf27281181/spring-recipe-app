@@ -1,7 +1,7 @@
 package csu.springframework.spring5recipeapp.bootstrap;
 
 import csu.springframework.spring5recipeapp.domain.*;
-import csu.springframework.spring5recipeapp.recipes.RecipeService;
+import csu.springframework.spring5recipeapp.services.RecipeService;
 import csu.springframework.spring5recipeapp.repositories.CategoryRepository;
 import csu.springframework.spring5recipeapp.repositories.RecipeRepository;
 import csu.springframework.spring5recipeapp.repositories.UnitOfMeasureRepository;
@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
