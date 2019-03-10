@@ -20,7 +20,7 @@ public class RecipeController {
     @GetMapping
     @RequestMapping("/recipe/show/{id}")
     public String showById(@PathVariable String id, Model model) {
-        Recipe recipe = recipeService.findById(Long.valueOf(id));
+        Recipe recipe = recipeService.findById(Long.valueOf(id.replace(" ", "")));
         model.addAttribute("recipe", recipe);
         return "recipe/show";
     }

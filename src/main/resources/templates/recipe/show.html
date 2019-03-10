@@ -98,24 +98,24 @@
                 </div>
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h1 class="panel-title" >Ingredients</h1>
-                    </div>
-                    <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-11">
-                                <ul>
-                                    <li th:remove="all">1 Cup of milk</li>
-                                    <li th:remove="all">1 Teaspoon of chocolate</li>
-                                    <li th:each="ingredient: ${recipe.ingredients}"
-                                        th:text="${ingredient.getAmount() +
-                                        ' ' + ingredient.uom.getDescription() +
-                                        '-' + ingredient.getDescription()}">1 Teaspoon of Sugar</li>
-                                </ul>
+                            <div class="col-md-10">
+                                <h1 class="panel-title" >Ingredients</h1>
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 <a class="btn btn-default" href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredients'}" role="button">View</a>
                             </div>
                         </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li th:remove="all">1 Cup of milk</li>
+                            <li th:remove="all">1 Teaspoon of chocolate</li>
+                            <li th:each="ingredient: ${recipe.ingredients}"
+                                th:text="${ingredient.getAmount() +
+                                ' ' + ingredient.uom.getDescription() +
+                                '-' + ingredient.getDescription()}">1 Teaspoon of Sugar</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="panel panel-primary">
